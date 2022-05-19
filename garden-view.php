@@ -160,12 +160,6 @@
 										<div class="card-body mx-auto" style="width: 40rem;">
 
 											<div class="mb-3">
-												<label class="form-label">Name:</label>
-												<input type="text" class="form-control" value="<?= $plantName?>" readonly>
-												<div class="form-text">Plant Name.</div>
-											</div>
-
-											<div class="mb-3">
 												<label class="form-label">Genus:</label>
 												<input type="text" class="form-control" value="<?= $plantGenus?>" readonly>
 												<div class="form-text">Genus is a taxonomic rank used in the biological classification of living.</div>
