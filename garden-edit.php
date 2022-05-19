@@ -26,7 +26,12 @@
 		}
 	}
 
-	if(isset($_POST["submit"])){
+	else{
+		var_dump("Oppss somthing just happen, but it seem it error 404");
+		exit();
+	}
+
+	if (isset($_POST["submit"])){
 
 		//Trim
         $plantId		= trim($plantId);
@@ -44,13 +49,35 @@
         $uploadOk       = 1;
         $imageFileType  = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-		if($_FILES['imageUpload']['size'] == 0 || $_FILES['imageUpload']['error'] == 4){
-			var_dump("Empty");
+		if(!$_FILES['imageUpload']['size'] == 0 || !$_FILES['imageUpload']['error'] == 4){
+
+			//check if file already exist
+			if (file_exists($target_file) ){
+				echo "<script>alert('Sorry, the file already exist!!');window.location.href='garden-edit.php'</script>";
+			}
+	
+			// Allow certain file formats
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+				echo "<script>alert('Sorry, wrong file format');window.location.href='garden-edit.php'</script>";
+			}
+
+			var_dump("Breakpoint File Upload");
 			exit();
+
+			// if everything is ok, try to upload file
+			if (move_uploaded_file($_FILES["imageUpload"]["name"], $target_file)) {
+					//send directory
+					$directory = $target_dir.htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
+				} 
+			
+				else {
+					// echo "Sorry, there was an error uploading your file.";
+					echo "<script>alert('Sorry, error when uploading file');window.location.href='garden-edit.php'</script>";
+				}
 		}
 
 		else{
-			var_dump("Available");
+			var_dump("breakpoint - File Not uploaded");
 			exit();
 		}
 	}
