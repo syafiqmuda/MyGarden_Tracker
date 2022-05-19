@@ -1,6 +1,28 @@
 <!-- Database -->
 <?php
-	include "sql/config.php";											
+	include "sql/config.php";
+	
+	if (isset($_GET["id"])){
+
+		// Declaration
+		$id = $_GET["id"];
+
+		// Get Data
+		$sql = "SELECT * from plant WHERE id = '$id'";
+		$result = mysqli_query($connection, $sql);
+
+		if (mysqli_num_rows($result) > 0){
+			$row = mysqli_fetch_assoc($result);
+			$plantId		= $row["id"];
+			$plantName      = $row["name"];
+			$plantGenus     = $row["genus"];
+			$plantSpecies	= $row["species"];
+			$plantType		= $row["type"];
+			$plantLocation	= $row["location"];
+			$plantStatus	= $row["status"];
+			$plantActivites	= $row["recent activities"];
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -130,29 +152,6 @@
 							<div class="card mx-center">
 								<div class="card-body">
 									<div class="card m-6 bg-light">
-										<?php
-											if (isset($_GET["id"])){
-
-												// Declaration
-												$id = $_GET["id"];
-
-												// Get Data
-												$sql = "SELECT * from plant WHERE id = '$id'";
-												$result = mysqli_query($connection, $sql);
-
-												if (mysqli_num_rows($result) > 0){
-													$row = mysqli_fetch_assoc($result);
-													$plantId		= $row["id"];
-													$plantName      = $row["name"];
-													$plantGenus     = $row["genus"];
-													$plantSpecies	= $row["species"];
-													$plantType		= $row["type"];
-													$plantLocation	= $row["location"];
-													$plantStatus	= $row["status"];
-													$plantActivites	= $row["recent activities"];
-												}
-											}
-										?>
 										<img src="img/plant/Durian 1.jpg" style="height: 450px; width: 350px;" class="img-fluid rounded mx-auto d-block pt-4" alt="...">
 										<div class="card-header">
 											<h5 class="card-title text-center"><?= $plantName?></h5>
