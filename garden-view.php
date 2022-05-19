@@ -158,6 +158,13 @@
 											<h5 class="card-title text-center"><?= $plantName?></h5>
 										</div>
 										<div class="card-body mx-auto" style="width: 40rem;">
+
+											<div class="mb-3">
+												<label class="form-label">Name:</label>
+												<input type="text" class="form-control" value="<?= $plantName?>" readonly>
+												<div class="form-text">Plant Name.</div>
+											</div>
+
 											<div class="mb-3">
 												<label class="form-label">Genus:</label>
 												<input type="text" class="form-control" value="<?= $plantGenus?>" readonly>
@@ -238,25 +245,25 @@
 	<script>
 		// Declaration
 		var buttonUpdate = document.getElementById("update");
-		var buttonSubmit = document.getElementById("submit");
+				
+		document.getElementById("update").onclick = function() {
 
-		document.getElementById("update").onclick = function() {changeButton()};
-		document.getElementById("submit").onclick = function() {submitData()};
+			// Change Input Attr
+			document.getElementById("input").readOnly = false;
 
-		function changeButton() {
-			// Block Form sumbit
-			buttonUpdate.preventDefault();
-
-			// Change attribute
+			// Change button attribute
 			buttonUpdate.innerHTML = "Submit";
 			buttonUpdate.classList.remove("btn-outline-primary");
 			buttonUpdate.classList.add("btn-outline-success");
 			buttonUpdate.setAttribute("id", "submit");
-		}
 
-		function submitData(){
+			// Block Form sumbit
+			buttonUpdate.preventDefault();
+		};
 
-		}
+		document.getElementById("submit").onclick = function() {
+
+		};
 	</script>
 
 </body>
