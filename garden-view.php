@@ -196,7 +196,7 @@
 											</div>
 
 											<div class="mb-3 d-flex justify-content-center">
-												<a href="garden-edit.php?update=<?= $id?>" class="btn mt-2 btn-outline-primary">Update</a>
+												<a href="garden-edit.php?update=<?= $id?>" class="btn m-2 btn-outline-primary">Update</a>
 											</div>
 
 										</div>
