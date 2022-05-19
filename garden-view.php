@@ -240,26 +240,26 @@
 	<script src="js/app.js"></script>
 	<script>
 		// Declaration
-		var buttonUpdate = document.getElementById("update");
+		// var buttonUpdate = document.getElementById("update");
 				
-		document.getElementById("update").onclick = function() {
+		// document.getElementById("update").onclick = function() {
 
-			// Change Input Attr
-			document.getElementById("input").readOnly = false;
+		// 	// Change Input Attr
+		// 	document.getElementById("input").readOnly = false;
 
-			// Change button attribute
-			buttonUpdate.innerHTML = "Submit";
-			buttonUpdate.classList.remove("btn-outline-primary");
-			buttonUpdate.classList.add("btn-outline-success");
-			buttonUpdate.setAttribute("id", "submit");
+		// 	// Change button attribute
+		// 	buttonUpdate.innerHTML = "Submit";
+		// 	buttonUpdate.classList.remove("btn-outline-primary");
+		// 	buttonUpdate.classList.add("btn-outline-success");
+		// 	buttonUpdate.setAttribute("id", "submit");
 
-			// Block Form sumbit
-			buttonUpdate.preventDefault();
-		};
+		// 	// Block Form sumbit
+		// 	buttonUpdate.preventDefault();
+		// };
 
-		document.getElementById("submit").onclick = function() {
+		// document.getElementById("submit").onclick = function() {
 
-		};
+		// };
 	</script>
 
 </body>
