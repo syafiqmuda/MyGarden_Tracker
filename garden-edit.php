@@ -131,10 +131,10 @@
 								<div class="card-body">
 									<div class="card m-6 bg-light">
 										<?php
-											if (isset($_GET["id"])){
+											if (isset($_GET["update"])){
 
 												// Declaration
-												$id = $_GET["id"];
+												$id = $_GET["update"];
 
 												// Get Data
 												$sql = "SELECT * from plant WHERE id = '$id'";
@@ -161,44 +161,42 @@
 
 											<div class="mb-3">
 												<label class="form-label">Genus:</label>
-												<input type="text" class="form-control" value="<?= $plantGenus?>" readonly>
+												<input type="text" class="form-control" value="<?= $plantGenus?>">
 												<div class="form-text">Genus is a taxonomic rank used in the biological classification of living.</div>
 											</div>
 
 											<div class="mb-3">
 												<label class="form-label">Species:</label>
-												<input type="text" class="form-control" value="<?= $plantSpecies?>" readonly>
+												<input type="text" class="form-control" value="<?= $plantSpecies?>">
 												<div class="form-text">Plant species means a grouping of related organisms constituting a systematic unit, occupying a certain permanent and relatively constant place in nature.</div>
 											</div>
 
 											<div class="mb-3">
 												<label class="form-label">Type:</label>
-												<input type="text" class="form-control" value="<?= $plantType?>"readonly>
+												<input type="text" class="form-control" value="<?= $plantType?>">
 												<div class="form-text">Plant type. ex: tree, bush, etc.</div>
 											</div>
 
 											<div class="mb-3">
 												<label class="form-label">Location:</label>
-												<input type="text" class="form-control" value="<?= $plantLocation?>"readonly>
+												<input type="text" class="form-control" value="<?= $plantLocation?>">
 												<div class="form-text">Planting location in garden.</div>
 											</div>
 
 											<div class="mb-3">
 												<label class="form-label">Status:</label>
-												<input type="text" class="form-control" value="<?= $plantStatus?>"readonly>
+												<input type="text" class="form-control" value="<?= $plantStatus?>">
 												<div class="form-text">The healthy and current condition of the plant</div>
 											</div>
 
 											<div class="mb-3">
 												<label class="form-label">Recent Activities:</label>
-												<input type="text" class="form-control" value="<?= $plantActivites?>"readonly>
+												<input type="text" class="form-control" value="<?= $plantActivites?>">
 												<div class="form-text">Last event or recent update on plant</div>
 											</div>
 
 											<div class="mb-3 d-flex justify-content-center">
-												<a href="garden-edit.php?update=<?= $id?>" class="btn mt-2 btn-outline-primary">Update</a>
-											</div>
-
+												<button class="btn mt-2 btn-outline-primary" id="update">Update</button>											</div>
 										</div>
 									</div>
 								</div>
