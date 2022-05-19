@@ -8,21 +8,22 @@
 		$id = $_GET["update"];
 
 		// Query
-		$sql = "SELECT * from plant WHERE id = '$id'";
+		$sql = "SELECT * from plant WHERE p_id = '$id'";
 		$result = mysqli_query($connection, $sql);
 
 		// Check and Fetch
 		if (mysqli_num_rows($result) > 0){
 			$row = mysqli_fetch_assoc($result);
 
-			$plantId		= $row["id"];
-			$plantName      = $row["name"];
-			$plantGenus     = $row["genus"];
-			$plantSpecies	= $row["species"];
-			$plantType		= $row["type"];
-			$plantLocation	= $row["location"];
-			$plantStatus	= $row["status"];
-			$plantActivites	= $row["recent activities"];
+			$plantId		= $row["p_id"];
+			$plantName      = $row["p_name"];
+			$plantGenus     = $row["p_genus"];
+			$plantSpecies	= $row["p_species"];
+			$plantType		= $row["p_type"];
+			$plantLocation	= $row["p_location"];
+			$plantStatus	= $row["p_status"];
+			$plantImage		= $row["p_image"];
+			$plantActivites	= $row["p_recent"];
 		}
 	}
 
@@ -53,33 +54,43 @@
 
 			//check if file already exist
 			if (file_exists($target_file) ){
-				echo "<script>alert('Sorry, the file already exist!!');window.location.href='garden-edit.php'</script>";
+				echo "<script>alert('Sorry, the file already exist!!');window.location.href='garden-edit.php?id=$id'</script>";
 			}
 	
 			// Allow certain file formats
 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-				echo "<script>alert('Sorry, wrong file format');window.location.href='garden-edit.php'</script>";
+				echo "<script>alert('Sorry, wrong file format');window.location.href='garden-edit.php?id=$id'</script>";
 			}
 
-			var_dump("Breakpoint File Upload");
-			exit();
-
-			// if everything is ok, try to upload file
-			if (move_uploaded_file($_FILES["imageUpload"]["name"], $target_file)) {
-					//send directory
-					$directory = $target_dir.htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
-				} 
-			
-				else {
-					// echo "Sorry, there was an error uploading your file.";
-					echo "<script>alert('Sorry, error when uploading file');window.location.href='garden-edit.php'</script>";
-				}
+			// Update dir
+			$directory = $target_dir.htmlspecialchars( basename( $_FILES["imageUpload"]["name"]));
 		}
 
 		else{
-			var_dump("breakpoint - File Not uploaded");
-			exit();
+			// Keep old dir
+			$directory = $plantImage;
 		}
+
+		//Query
+        $sql = "UPDATE plant SET p_name=?, p_genus=?, p_species=?, p_type=?, p_location=?, p_status=?, p_image=?, p_recent=? WHERE p_id=?";
+        $stmt = mysqli_prepare($connection, $sql);
+
+        //Bind 
+        mysqli_stmt_bind_param($stmt, "ssssssssi", $plantName, $plantGenus, $plantSpecies, $plantType, $plantLocation, $plantStatus, $directory, $plantRecent, $plantId);
+
+        //execute + image upload
+        if (mysqli_stmt_execute ($stmt)){
+
+			// if everything is ok, upload file
+			move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
+			
+			// alert
+            echo "<script>alert('Successfully add new facility');window.location.href='garden-view.php?id=$id'</script>";
+        }
+
+        else {
+            echo "<script>alert('Sorry, database problem ');window.location.href='garden-view.php?id=$id'</script>";
+        }
 	}
 ?>
 
@@ -193,7 +204,6 @@
 			
 			<main class="content">
 				<div class="container-fluid">
-
 					<div class="header">
 						<h1 class="header-title">
 							My Plants > Overview
@@ -206,7 +216,7 @@
 							<div class="card mx-center">
 								<div class="card-body">
 									<div class="card m-6 bg-light">
-										<img src="img/plant/Durian 1.jpg" style="height: 450px; width: 350px;" class="img-fluid rounded mx-auto d-block pt-4" alt="...">
+										<img src="<?= $plantImage?>" style="height: 450px; width: 350px;" class="img-fluid rounded mx-auto d-block pt-4" alt="...">
 										<div class="card-header">
 											<h5 class="card-title text-center"><?= $plantName?></h5>
 										</div>

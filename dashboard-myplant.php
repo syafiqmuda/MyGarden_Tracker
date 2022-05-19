@@ -1,6 +1,6 @@
 <!-- Database -->
 <?php
-		include ("sql/config.php");
+	include ("sql/config.php");
 ?>
 
 <!DOCTYPE html>
@@ -135,18 +135,19 @@
 
 							// Get Data from Database
 							while ($row = mysqli_fetch_assoc($result)){
-								$plantId		= $row["id"];
-								$plantName      = $row["name"];
-								$plantGenus     = $row["genus"];
-								$plantSpecies	= $row["species"];
-								$plantType		= $row["type"];
-								$plantLocation	= $row["location"];
-								$plantStatus	= $row["status"];
-								$plantActivites	= $row["recent activities"];
+								$plantId		= $row["p_id"];
+								$plantName      = $row["p_name"];
+								$plantGenus     = $row["p_genus"];
+								$plantSpecies	= $row["p_species"];
+								$plantType		= $row["p_type"];
+								$plantLocation	= $row["p_location"];
+								$plantStatus	= $row["p_status"];
+								$plantImage		= $row["p_image"];
+								$plantActivites	= $row["p_recent"];
 						?>
 						<div class="col-sm-4">
 							<div class="card" style="height: auto;">
-								<img src="img/plant/Durian 1.jpg" style="height: 350px; width: 350px;" class="img-fluid rounded mx-auto d-block" alt="...">
+								<img src="<?= $plantImage?>" style="height: 350px; width: 350px;" class="img-fluid rounded mx-auto d-block" alt="...">
 								<div class="card-header">
 									<h5 class="card-title text-center"><?= $plantName?></h5>
 								</div>

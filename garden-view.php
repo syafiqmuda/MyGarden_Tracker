@@ -8,19 +8,20 @@
 		$id = $_GET["id"];
 
 		// Get Data
-		$sql = "SELECT * from plant WHERE id = '$id'";
+		$sql = "SELECT * from plant WHERE p_id = '$id'";
 		$result = mysqli_query($connection, $sql);
 
 		if (mysqli_num_rows($result) > 0){
 			$row = mysqli_fetch_assoc($result);
-			$plantId		= $row["id"];
-			$plantName      = $row["name"];
-			$plantGenus     = $row["genus"];
-			$plantSpecies	= $row["species"];
-			$plantType		= $row["type"];
-			$plantLocation	= $row["location"];
-			$plantStatus	= $row["status"];
-			$plantActivites	= $row["recent activities"];
+			$plantId		= $row["p_id"];
+			$plantName      = $row["p_name"];
+			$plantGenus     = $row["p_genus"];
+			$plantSpecies	= $row["p_species"];
+			$plantType		= $row["p_type"];
+			$plantLocation	= $row["p_location"];
+			$plantStatus	= $row["p_status"];
+			$plantImage		= $row["p_image"];
+			$plantActivites	= $row["p_recent"];
 		}
 	}
 ?>
@@ -152,7 +153,7 @@
 							<div class="card mx-center">
 								<div class="card-body">
 									<div class="card m-6 bg-light">
-										<img src="img/plant/Durian 1.jpg" style="height: 450px; width: 350px;" class="img-fluid rounded mx-auto d-block pt-4" alt="...">
+										<img src="<?= $plantImage?>" style="height: 450px; width: 350px;" class="img-fluid rounded mx-auto d-block pt-4" alt="...">
 										<div class="card-header">
 											<h5 class="card-title text-center"><?= $plantName?></h5>
 										</div>
@@ -197,7 +198,6 @@
 											<div class="mb-3 d-flex justify-content-center">
 												<a href="garden-edit.php?update=<?= $id?>" class="btn m-2 btn-outline-primary">Update</a>
 											</div>
-
 										</div>
 									</div>
 								</div>
