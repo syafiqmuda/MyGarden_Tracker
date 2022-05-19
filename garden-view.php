@@ -240,10 +240,11 @@
 		var buttonUpdate = document.getElementById("update");
 		var buttonSubmit = document.getElementById("submit");
 
-		document.getElementById("update").onclick = function() {myFunction()};
+		document.getElementById("update").onclick = function() {changeButton()};
+		document.getElementById("submit").onclick = function() {submitData()};
 
-		function myFunction() {
-			// Block form sumbit
+		function changeButton() {
+			// Block Form sumbit
 			buttonUpdate.preventDefault();
 
 			// Change attribute
@@ -251,6 +252,10 @@
 			buttonUpdate.classList.remove("btn-outline-primary");
 			buttonUpdate.classList.add("btn-outline-success");
 			buttonUpdate.setAttribute("id", "submit");
+		}
+
+		function submitData(){
+
 		}
 	</script>
 
