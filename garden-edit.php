@@ -1,6 +1,28 @@
 <!-- Database -->
 <?php
-	include "sql/config.php";											
+	include "sql/config.php";
+	
+	if (isset($_GET["update"])){
+
+		// Declaration
+		$id = $_GET["update"];
+
+		// Get Data
+		$sql = "SELECT * from plant WHERE id = '$id'";
+		$result = mysqli_query($connection, $sql);
+
+		if (mysqli_num_rows($result) > 0){
+			$row = mysqli_fetch_assoc($result);
+			$plantId		= $row["id"];
+			$plantName      = $row["name"];
+			$plantGenus     = $row["genus"];
+			$plantSpecies	= $row["species"];
+			$plantType		= $row["type"];
+			$plantLocation	= $row["location"];
+			$plantStatus	= $row["status"];
+			$plantActivites	= $row["recent activities"];
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +54,6 @@
 </head>
 
 <body>
-	<div class="splash active">
-		<div class="splash-icon"></div>
-	</div>
-
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<a class="sidebar-brand" href="index.html">
@@ -130,73 +148,65 @@
 							<div class="card mx-center">
 								<div class="card-body">
 									<div class="card m-6 bg-light">
-										<?php
-											if (isset($_GET["update"])){
-
-												// Declaration
-												$id = $_GET["update"];
-
-												// Get Data
-												$sql = "SELECT * from plant WHERE id = '$id'";
-												$result = mysqli_query($connection, $sql);
-
-												if (mysqli_num_rows($result) > 0){
-													$row = mysqli_fetch_assoc($result);
-													$plantId		= $row["id"];
-													$plantName      = $row["name"];
-													$plantGenus     = $row["genus"];
-													$plantSpecies	= $row["species"];
-													$plantType		= $row["type"];
-													$plantLocation	= $row["location"];
-													$plantStatus	= $row["status"];
-													$plantActivites	= $row["recent activities"];
-												}
-											}
-										?>
 										<img src="img/plant/Durian 1.jpg" style="height: 450px; width: 350px;" class="img-fluid rounded mx-auto d-block pt-4" alt="...">
 										<div class="card-header">
 											<h5 class="card-title text-center"><?= $plantName?></h5>
 										</div>
 										<div class="card-body mx-auto" style="width: 40rem;">
+											<form action="" method="POST">
+												<div class="mb-3">
+													<label class="form-label">Name:</label>
+													<input type="text" class="form-control" value="<?= $plantName?>">
+													<div class="form-text">Name for the plant.</div>
+												</div>
 
-											<div class="mb-3">
-												<label class="form-label">Genus:</label>
-												<input type="text" class="form-control" value="<?= $plantGenus?>">
-												<div class="form-text">Genus is a taxonomic rank used in the biological classification of living.</div>
-											</div>
+												<div class="mb-3">
+													<label class="form-label">Genus:</label>
+													<input type="text" class="form-control" value="<?= $plantGenus?>">
+													<div class="form-text">Genus is a taxonomic rank used in the biological classification of living.</div>
+												</div>
+	
+												<div class="mb-3">
+													<label class="form-label">Species:</label>
+													<input type="text" class="form-control" value="<?= $plantSpecies?>">
+													<div class="form-text">Plant species means a grouping of related organisms constituting a systematic unit, occupying a certain permanent and relatively constant place in nature.</div>
+												</div>
+	
+												<div class="mb-3">
+													<label class="form-label">Type:</label>
+													<input type="text" class="form-control" value="<?= $plantType?>">
+													<div class="form-text">Plant type. ex: tree, bush, etc.</div>
+												</div>
+	
+												<div class="mb-3">
+													<label class="form-label">Location:</label>
+													<input type="text" class="form-control" value="<?= $plantLocation?>">
+													<div class="form-text">Planting location in garden.</div>
+												</div>
+	
+												<div class="mb-3">
+													<label class="form-label">Status:</label>
+													<input type="text" class="form-control" value="<?= $plantStatus?>">
+													<div class="form-text">The healthy and current condition of the plant</div>
+												</div>
+	
+												<div class="mb-3">
+													<label class="form-label">Recent Activities:</label>
+													<input type="text" class="form-control" value="<?= $plantActivites?>">
+													<div class="form-text">Last event or recent update on plant</div>
+												</div>
 
-											<div class="mb-3">
-												<label class="form-label">Species:</label>
-												<input type="text" class="form-control" value="<?= $plantSpecies?>">
-												<div class="form-text">Plant species means a grouping of related organisms constituting a systematic unit, occupying a certain permanent and relatively constant place in nature.</div>
-											</div>
-
-											<div class="mb-3">
-												<label class="form-label">Type:</label>
-												<input type="text" class="form-control" value="<?= $plantType?>">
-												<div class="form-text">Plant type. ex: tree, bush, etc.</div>
-											</div>
-
-											<div class="mb-3">
-												<label class="form-label">Location:</label>
-												<input type="text" class="form-control" value="<?= $plantLocation?>">
-												<div class="form-text">Planting location in garden.</div>
-											</div>
-
-											<div class="mb-3">
-												<label class="form-label">Status:</label>
-												<input type="text" class="form-control" value="<?= $plantStatus?>">
-												<div class="form-text">The healthy and current condition of the plant</div>
-											</div>
-
-											<div class="mb-3">
-												<label class="form-label">Recent Activities:</label>
-												<input type="text" class="form-control" value="<?= $plantActivites?>">
-												<div class="form-text">Last event or recent update on plant</div>
-											</div>
+												<div class="mb-3">
+													<label class="form-label w-100">Image:</label>
+													<input class="form-control" type="file">
+													<small class="form-text d-block text-muted">Example block-level help text here.</small>
+												</div>
+											</form>
 
 											<div class="mb-3 d-flex justify-content-center">
-												<button class="btn mt-2 btn-outline-primary" id="update">Update</button>											</div>
+												<button class="btn m-1 btn-outline-danger" onclick="history.back()">Back</button>
+												<button class="btn m-1 btn-outline-success" type="submit">Save</button>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -236,29 +246,5 @@
 		</div>
 	</div>
 	<script src="js/app.js"></script>
-	<script>
-		// Declaration
-		var buttonUpdate = document.getElementById("update");
-				
-		document.getElementById("update").onclick = function() {
-
-			// Change Input Attr
-			document.getElementById("input").readOnly = false;
-
-			// Change button attribute
-			buttonUpdate.innerHTML = "Submit";
-			buttonUpdate.classList.remove("btn-outline-primary");
-			buttonUpdate.classList.add("btn-outline-success");
-			buttonUpdate.setAttribute("id", "submit");
-
-			// Block Form sumbit
-			buttonUpdate.preventDefault();
-		};
-
-		document.getElementById("submit").onclick = function() {
-
-		};
-	</script>
-
 </body>
 </html>
