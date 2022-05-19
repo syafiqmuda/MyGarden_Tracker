@@ -7,12 +7,14 @@
 		// Declaration
 		$id = $_GET["update"];
 
-		// Get Data
+		// Query
 		$sql = "SELECT * from plant WHERE id = '$id'";
 		$result = mysqli_query($connection, $sql);
 
+		// Check and Fetch
 		if (mysqli_num_rows($result) > 0){
 			$row = mysqli_fetch_assoc($result);
+
 			$plantId		= $row["id"];
 			$plantName      = $row["name"];
 			$plantGenus     = $row["genus"];
@@ -21,6 +23,35 @@
 			$plantLocation	= $row["location"];
 			$plantStatus	= $row["status"];
 			$plantActivites	= $row["recent activities"];
+		}
+	}
+
+	if(isset($_POST["submit"])){
+
+		//Trim
+        $plantId		= trim($plantId);
+        $plantName		= trim($_POST["name"]);
+        $plantGenus		= trim($_POST["genus"]);
+        $plantSpecies	= trim($_POST["species"]);
+        $plantType		= trim($_POST["type"]);
+        $plantLocation	= trim($_POST["location"]);
+        $plantStatus	= trim($_POST["status"]);
+		$plantRecent	= trim($_POST["recent"]);
+        
+        //get image upload
+        $target_dir     = "img/plant/";
+        $target_file    = $target_dir.basename( $_FILES["imageUpload"]["name"] );
+        $uploadOk       = 1;
+        $imageFileType  = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+		if($_FILES['imageUpload']['size'] == 0 || $_FILES['imageUpload']['error'] == 4){
+			var_dump("Empty");
+			exit();
+		}
+
+		else{
+			var_dump("Available");
+			exit();
 		}
 	}
 ?>
@@ -153,60 +184,64 @@
 											<h5 class="card-title text-center"><?= $plantName?></h5>
 										</div>
 										<div class="card-body mx-auto" style="width: 40rem;">
-											<form action="" method="POST">
+											<form method="post" enctype="multipart/form-data">
 												<div class="mb-3">
 													<label class="form-label">Name:</label>
-													<input type="text" class="form-control" value="<?= $plantName?>">
+													<input name="name" type="text" class="form-control" value="<?= $plantName?>">
 													<div class="form-text">Name for the plant.</div>
 												</div>
 
 												<div class="mb-3">
 													<label class="form-label">Genus:</label>
-													<input type="text" class="form-control" value="<?= $plantGenus?>">
+													<input name="genus" type="text" class="form-control" value="<?= $plantGenus?>">
 													<div class="form-text">Genus is a taxonomic rank used in the biological classification of living.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Species:</label>
-													<input type="text" class="form-control" value="<?= $plantSpecies?>">
+													<input name="species" type="text" class="form-control" value="<?= $plantSpecies?>">
 													<div class="form-text">Plant species means a grouping of related organisms constituting a systematic unit, occupying a certain permanent and relatively constant place in nature.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Type:</label>
-													<input type="text" class="form-control" value="<?= $plantType?>">
+													<input name="type" type="text" class="form-control" value="<?= $plantType?>">
 													<div class="form-text">Plant type. ex: tree, bush, etc.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Location:</label>
-													<input type="text" class="form-control" value="<?= $plantLocation?>">
+													<input name="location" type="text" class="form-control" value="<?= $plantLocation?>">
 													<div class="form-text">Planting location in garden.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Status:</label>
-													<input type="text" class="form-control" value="<?= $plantStatus?>">
+													<input name="status" type="text" class="form-control" value="<?= $plantStatus?>">
 													<div class="form-text">The healthy and current condition of the plant</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Recent Activities:</label>
-													<input type="text" class="form-control" value="<?= $plantActivites?>">
+													<input name="recent" type="text" class="form-control" value="<?= $plantActivites?>">
 													<div class="form-text">Last event or recent update on plant</div>
 												</div>
 
+												
 												<div class="mb-3">
-													<label class="form-label w-100">Image:</label>
-													<input class="form-control" type="file">
-													<small class="form-text d-block text-muted">Example block-level help text here.</small>
+													<div class="input-group">
+														<label class="form-label w-100">Image:</label>
+														<input class="form-control" type="file" name="imageUpload">
+														<button class="btn btn-pill btn-outline-danger" name="clear">Clear</button>
+													</div>	
+													<small class="form-text d-block text-muted">Upload new image to change.</small>
+												</div>
+
+												<div class="mb-3 d-flex justify-content-center">
+													<a class="btn btn-outline-danger m-1" href="garden-view.php?id=<?= $id?>">Back</a>
+													<button class="btn btn-outline-success m-1" type="submit" name="submit">Save</button>
 												</div>
 											</form>
-
-											<div class="mb-3 d-flex justify-content-center">
-												<button class="btn m-1 btn-outline-danger" onclick="history.back()">Back</button>
-												<button class="btn m-1 btn-outline-success" type="submit">Save</button>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -246,5 +281,13 @@
 		</div>
 	</div>
 	<script src="js/app.js"></script>
+	<script>
+		// Clear Image
+		$(document).ready(function() {
+			$("input[name=clear]").on("click", function() {     
+				$("input[name=imageUpload]").val("");
+			});
+		});
+	</script>
 </body>
 </html>
