@@ -168,7 +168,7 @@
 														<td><?= $plantLocation?></td>
 														<td><?= $plantStatus?></td>
 														<td><?= $plantActivites?></td>
-														<td><a class="btn btn-outline-danger" onclick="return confirm('Are you sure want to delete this data?')" href="#">Delete</a></td>
+														<td><a class="btn btn-outline-danger" onclick="return confirm('Are you sure want to delete this data?')" href="garden-delete.php?id=<?= $plantId?>">Delete</a></td>
 													</tr>
 											<?php
 												}
