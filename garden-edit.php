@@ -47,7 +47,6 @@
         //get image upload
         $target_dir     = "img/plant/";
         $target_file    = $target_dir.basename( $_FILES["imageUpload"]["name"] );
-        $uploadOk       = 1;
         $imageFileType  = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 		if(!$_FILES['imageUpload']['size'] == 0 || !$_FILES['imageUpload']['error'] == 4){
