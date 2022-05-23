@@ -1,3 +1,6 @@
+<?php
+	include "sql/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
