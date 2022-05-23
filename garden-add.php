@@ -5,62 +5,76 @@
 	if (isset($_POST["submit"])){
 
 		//Trim
-        $plantId		= trim($plantId);
         $plantName		= trim($_POST["name"]);
         $plantGenus		= trim($_POST["genus"]);
         $plantSpecies	= trim($_POST["species"]);
         $plantType		= trim($_POST["type"]);
         $plantLocation	= trim($_POST["location"]);
         $plantStatus	= trim($_POST["status"]);
-		$plantRecent	= trim($_POST["recent"]);
+		$plantRecent	= "New plant";
         
         //get image upload
         $target_dir     = "img/plant/";
         $target_file    = $target_dir.basename( $_FILES["imageUpload"]["name"] );
-        $uploadOk       = 1;
         $imageFileType  = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+		$code			= 0;
 
-		if(!$_FILES['imageUpload']['size'] == 0 || !$_FILES['imageUpload']['error'] == 4){
+		//checkking image     
+        if (getimagesize($_FILES["imageUpload"]["tmp_name"]) == false){
+            $code = 1;
+        }
 
-			//check if file already exist
-			if (file_exists($target_file) ){
-				echo "<script>alert('Sorry, the file already exist!!');window.location.href='garden-edit.php?id=$id'</script>";
+		//check if file already exist
+		if (file_exists($target_file) ){
+			$code = 2;
+		}
+		
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+			$code = 3;
+		}
+		
+		switch($code){
+
+			case "1":
+				echo "<script>alert('please insert image only!!');</script>";
+			break;
+
+			case "2":
+				echo "<script>alert('Sorry, the file already exist!!');</script>";
+			break;
+				
+			case "3":
+				echo "<script>alert('Sorry, wrong file format');</script>";
+			break;
+
+			default:
+			var_dump("Breakpoint - SQL");
+			exit();	
+
+			//Query
+			$sql = "INSERT INTO plant (p_name, p_genus, p_species, p_type, p_location, p_status, p_image, p_recent) VALUE (?,?,?,?,?,?,?,?)" ;
+			$stmt = mysqli_prepare($connection, $sql);
+	
+			//Bind + image
+			$image = $target_dir.htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
+			mysqli_stmt_bind_param($stmt, "ssssssss", $plantName, $plantGenus, $plantSpecies, $plantType, $plantLocation, $plantStatus, $image, $plantRecent);
+			
+	
+			//execute + image upload
+			if (mysqli_stmt_execute ($stmt)){
+	
+				// if everything is ok, upload file
+				move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
+				
+				// alert
+				echo "<script>alert('Successfully add new a new plant in your area');window.location.href='garden-listplant.php'</script>";
 			}
 	
-			// Allow certain file formats
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-				echo "<script>alert('Sorry, wrong file format');window.location.href='garden-edit.php?id=$id'</script>";
+			else {
+				echo "<script>alert('Sorry, database problem');window.location.href='garden-listplant.php'</script>";
 			}
-
-			// Update dir
-			$directory = $target_dir.htmlspecialchars( basename( $_FILES["imageUpload"]["name"]));
 		}
-
-		else{
-			// Keep old dir
-			$directory = $plantImage;
-		}
-
-		//Query
-        $sql = "UPDATE plant SET p_name=?, p_genus=?, p_species=?, p_type=?, p_location=?, p_status=?, p_image=?, p_recent=? WHERE p_id=?";
-        $stmt = mysqli_prepare($connection, $sql);
-
-        //Bind 
-        mysqli_stmt_bind_param($stmt, "ssssssssi", $plantName, $plantGenus, $plantSpecies, $plantType, $plantLocation, $plantStatus, $directory, $plantRecent, $plantId);
-
-        //execute + image upload
-        if (mysqli_stmt_execute ($stmt)){
-
-			// if everything is ok, upload file
-			move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
-			
-			// alert
-            echo "<script>alert('Successfully add new facility');window.location.href='garden-view.php?id=$id'</script>";
-        }
-
-        else {
-            echo "<script>alert('Sorry, database problem ');window.location.href='garden-view.php?id=$id'</script>";
-        }
 	}
 ?>
 
@@ -107,24 +121,24 @@
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">Main</li>
-					<li class="sidebar-item active">
+					<li class="sidebar-item">
 						<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
 							<i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
 						</a>
 						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.php">Analytics</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-forecast.php">Weather forecast</a></li>
-							<li class="sidebar-item active"><a class="sidebar-link" href="dashboard-myplant.php">My Plant</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-myplant.php">My Plant</a></li>
 						</ul>
 					</li>
 
 					<li class="sidebar-header">Garden</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item active">
 						<a data-bs-target="#garden" data-bs-toggle="collapse" class="sidebar-link collapsed">
 							<i class="align-middle me-2 fas fa-fw fa-leaf"></i> <span class="align-middle">Plant Database</span>
 						</a>
 						<ul id="garden" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="garden-listplant">List of Plant</a></li>
+							<li class="sidebar-item active"><a class="sidebar-link" href="garden-listplant">List of Plant</a></li>
 						</ul>
 					</li>
 
@@ -176,9 +190,9 @@
 				<div class="container-fluid">
 					<div class="header">
 						<h1 class="header-title">
-							My Plants > Overview
+							Plant Database > Create New
 						</h1>
-						<p class="header-subtitle">When the time come, harvest the resource.</p>
+						<p class="header-subtitle">The more plant you have, the more resource you get.</p>
 					</div>
 
 					<div class="row">
@@ -187,60 +201,56 @@
 								<div class="card-body">
 									<div class="card m-6 bg-light">
 										<div class="card-header">
-											<h3 class="text-center m-3">Planting a new plant</h3>
+											<h3 class="text-center m-3">Planting a New Plant</h3>
 										</div>
 										<div class="card-body mx-auto" style="width: 40rem;">
 											<form method="post" enctype="multipart/form-data">
 												<div class="mb-3">
 													<label class="form-label">Name:</label>
-													<input name="name" type="text" class="form-control" value="">
+													<input name="name" type="text" class="form-control" value="" required>
 													<div class="form-text">Name for the plant.</div>
 												</div>
 
 												<div class="mb-3">
 													<label class="form-label">Genus:</label>
-													<input name="genus" type="text" class="form-control" value="">
+													<input name="genus" type="text" class="form-control" value="" required>
 													<div class="form-text">Genus is a taxonomic rank used in the biological classification of living.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Species:</label>
-													<input name="species" type="text" class="form-control" value="">
+													<input name="species" type="text" class="form-control" value="" required>
 													<div class="form-text">Plant species means a grouping of related organisms constituting a systematic unit, occupying a certain permanent and relatively constant place in nature.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Type:</label>
-													<input name="type" type="text" class="form-control" value="">
+													<input name="type" type="text" class="form-control" value="" required>
 													<div class="form-text">Plant type. ex: tree, bush, etc.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Location:</label>
-													<input name="location" type="text" class="form-control" value="">
+													<input name="location" type="text" class="form-control" value="" required>
 													<div class="form-text">Planting location in garden.</div>
 												</div>
 	
 												<div class="mb-3">
 													<label class="form-label">Status:</label>
-													<input name="status" type="text" class="form-control" value="">
+													<input name="status" type="text" class="form-control" value="" required>
 													<div class="form-text">The healthy and current condition of the plant</div>
 												</div>
-	
-												<div class="mb-3">
-													<label class="form-label">Recent Activities:</label>
-													<input name="recent" type="text" class="form-control" value="">
-													<div class="form-text">Last event or recent update on plant</div>
-												</div>
-
-												
+													
 												<div class="mb-3">
 													<div class="input-group">
 														<label class="form-label w-100">Image:</label>
-														<input class="form-control" type="file" name="imageUpload">
-														<button class="btn btn-pill btn-outline-danger" name="clear">Clear</button>
+														<input class="form-control" type="file" name="imageUpload" onchange="preview()" required>
+														<button class="btn btn-pill btn-outline-danger" onclick="clearImage()" >Clear</button>
 													</div>	
 													<small class="form-text d-block text-muted">Upload new image to change.</small>
+												</div>
+												<div class="mb-3">
+													<img id="frame" src="" class="img-fluid" />
 												</div>
 
 												<div class="mb-3 d-flex justify-content-center">
@@ -288,12 +298,14 @@
 	</div>
 	<script src="js/app.js"></script>
 	<script>
-		// Clear Image
-		$(document).ready(function() {
-			$("input[name=clear]").on("click", function() {     
-				$("input[name=imageUpload]").val("");
-			});
-		});
+		function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function clearImage() {
+            document.getElementById('imageUpload').value = null;
+            frame.src = "";
+        }
 	</script>
 </body>
 </html>
