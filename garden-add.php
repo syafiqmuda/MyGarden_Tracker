@@ -57,7 +57,7 @@
 			$stmt = mysqli_prepare($connection, $sql);
 	
 			//Bind + image
-			$image = $target_dir.htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
+			$image = $target_dir.htmlspecialchars( basename( $_FILES["imageUpload"]["name"]));
 			mysqli_stmt_bind_param($stmt, "ssssssss", $plantName, $plantGenus, $plantSpecies, $plantType, $plantLocation, $plantStatus, $image, $plantRecent);
 			
 	
