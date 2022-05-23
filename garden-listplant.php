@@ -129,7 +129,8 @@
 
 								<!-- Table Start -->
 								<div class="card-body">
-									<table id="datatables-fixed-header" class="table table-striped" style="width:100%">
+									<button class="btn btn-success mb-3">Add New Plant</button>
+									<table id="datatables" class="table table-striped" style="width:100%">
 										<thead>
 											<tr>
 												<th>Name</th>
@@ -636,5 +637,23 @@
 		</div>
 	</div>
 	<script src="js/app.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Datatables (JS)
+			// var datatablesButtons = $("#datatables").DataTable({
+			// 	responsive: true,
+			// 	fixedHeader: true,
+			// 	lengthChange: !1,
+			// 	buttons: ["copy"]
+			// });
+			// datatablesButtons.buttons().container().appendTo("#datatables_wrapper .col-md-6:eq(0)");
+
+			// Datatables (JQuery)
+			$("#datatables").DataTable({
+				fixedHeader: true,
+				pageLength: 25,
+			});
+		});
+	</script>
 </body>
 </html>
