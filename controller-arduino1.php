@@ -248,20 +248,20 @@ while ( $row = mysqli_fetch_array( $result ) ) {
 <script src="js/app.js"></script>
 
 	<script>										//starting Javascript.      
-		$(document).ready(function(){
-		  $("button").click(function(){
-			var p = $(this).attr('id');   			//get this button id and store it inside the "p" variable.      
-            pin: p                                  //a dictionary contains the button id to get sent to the web server.
+		// $(document).ready(function(){
+		//   $("button").click(function(){
+		// 	var p = $(this).attr('id');   			//get this button id and store it inside the "p" variable.      
+        //     pin: p                                  //a dictionary contains the button id to get sent to the web server.
 			
-			$.get("http://192.168.1.105:80/", { pin: p });
-			  $.get("http://192.168.1.111:80/", { pin: p });
-			  $.get("http://192.168.1.117:80/", { pin: p });
-			  $.get("http://192.168.1.109:80/", { pin: p });
-			  $.get("http://192.168.1.118:80/", { pin: p });
+		// 	$.get("http://192.168.1.105:80/", { pin: p });
+		// 	  $.get("http://192.168.1.111:80/", { pin: p });
+		// 	  $.get("http://192.168.1.117:80/", { pin: p });
+		// 	  $.get("http://192.168.1.109:80/", { pin: p });
+		// 	  $.get("http://192.168.1.118:80/", { pin: p });
 			  
-			  //then send a get request to the web server"http://192.168.1.4:80/" (":80" means port number 80) with some data in a form of dictionary {pin: p} which is the butoon id. IMPORTANT NOTE: DON'T FORGET TO CHANGE THE IP ADDRESS WITH YOUR ESP8266 NEW IP ADDRESS.   
-		  });
-		});
+		// 	  //then send a get request to the web server"http://192.168.1.4:80/" (":80" means port number 80) with some data in a form of dictionary {pin: p} which is the butoon id. IMPORTANT NOTE: DON'T FORGET TO CHANGE THE IP ADDRESS WITH YOUR ESP8266 NEW IP ADDRESS.   
+		//   });
+		// });
     </script>
 </body>
 </html>
