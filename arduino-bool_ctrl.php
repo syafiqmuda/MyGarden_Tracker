@@ -1,3 +1,34 @@
+<?php
+include "sql/config.php";
+
+$unitId	= 1;
+
+// Query
+$sql = "SELECT * from esptable2 WHERE id = '$unitId'";
+$result = mysqli_query($connection, $sql);
+
+// Check and Fetch
+if (mysqli_num_rows($result) > 0){
+	$row = mysqli_fetch_assoc($result);
+
+	$B1value = $row['RECEIVED_BOOL1'];
+	$B2value = $row['RECEIVED_BOOL2'];
+	$B3value = $row['RECEIVED_BOOL3'];
+	$B4value = $row['RECEIVED_BOOL4'];
+	$B5value = $row['RECEIVED_BOOL5'];
+}
+
+if(isset($_POST["value"])){
+
+	$button = trim($_POST["button"]);
+	$value 	= trim($_POST["value"]);
+
+	//SQL
+	mysqli_query($connection,"UPDATE ESPtable2 SET $button = '{$value}' WHERE id = $unitId");
+	header("Refresh:0");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,36 +48,101 @@
 					<tr>
 						<td>Boolean 1</td>
 						<td class="text-start">
-							<button id="051" class="btn btn-outline-success">ON</button>
-							<button id="050" class="btn btn-outline-danger">OFF</button>
+							<form method="post">
+								<input type="hidden" name="button" value="RECEIVED_BOOL1">
+								<?php
+									if($B1value == 0){
+								?>
+									<button type="submit" name="value" class="btn btn-outline-success" value="1">ON</button>
+								<?php
+									}
+									else{
+								?>
+									<button type="submit" name="value" class="btn btn-outline-danger" value="0">OFF</button>
+								<?php		
+									}
+								?>
+							</form>
 						</td>
 					</tr>
 					<tr>
 						<td>Boolean 2</td>
 						<td class="text-start">
-							<button id="061" class="btn btn-outline-success">ON</button>
-							<button id="060" class="btn btn-outline-danger">OFF</button>
+							<form method="post">
+								<input type="hidden" name="button" value="RECEIVED_BOOL2">
+								<?php
+									if($B2value == 0){
+								?>
+									<button type="submit" name="value" class="btn btn-outline-success" value="1">ON</button>
+								<?php
+									}
+									else{
+								?>
+									<button type="submit" name="value" class="btn btn-outline-danger" value="0">OFF</button>
+								<?php		
+									}
+								?>
+							</form>
 						</td>
 					</tr>
 					<tr>
 						<td>Boolean 3</td>
 						<td class="text-start">
-							<button id="071" class="btn btn-outline-success">ON</button>
-							<button id="070" class="btn btn-outline-danger">OFF</button>
+							<form method="post">
+								<input type="hidden" name="button" value="RECEIVED_BOOL3">
+								<?php
+									if($B3value == 0){
+								?>
+									<button type="submit" name="value" class="btn btn-outline-success" value="1">ON</button>
+								<?php
+									}
+									else{
+								?>
+									<button type="submit" name="value" class="btn btn-outline-danger" value="0">OFF</button>
+								<?php		
+									}
+								?>
+							</form>
 						</td>
 					</tr>
 					<tr>
 						<td>Boolean 4</td>
 						<td class="text-start">
-							<button id="081" class="btn btn-outline-success">ON</button>
-							<button id="080" class="btn btn-outline-danger">OFF</button>
+							<form method="post">
+								<input type="hidden" name="button" value="RECEIVED_BOOL4">
+								<?php
+									if($B4value == 0){
+								?>
+									<button type="submit" name="value" class="btn btn-outline-success" value="1">ON</button>
+								<?php
+									}
+									else{
+								?>
+									<button type="submit" name="value" class="btn btn-outline-danger" value="0">OFF</button>
+								<?php		
+									}
+								?>
+							</form>
 						</td>
 					</tr>
 					<tr>
 						<td>Boolean 5</td>
 						<td class="text-start">
-							<button id="091" class="btn btn-outline-success">ON</button>
-							<button id="090" class="btn btn-outline-danger" >OFF</button>
+							<form method="post">
+								<input type="hidden" name="button" value="RECEIVED_BOOL5">
+								<?php
+									if($B5value == 0){
+								?>
+									<button type="submit" name="value" class="btn btn-outline-success" value="1">ON </button>
+								<?php
+									}
+									else{
+								?>
+									<button type="submit" name="value" class="btn btn-outline-danger" value="0">OFF</button>
+								<?php		
+									}
+								?>
+							</form>
 						</td>
 					</tr>
 				</tbody>
