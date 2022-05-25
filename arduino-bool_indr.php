@@ -11,74 +11,21 @@
 					<tr>
 						<th>Controller</th>
 						<th class="text-start">Status</th>
-						<th class="text-start">Option</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
-						<td>Boolean 1</td>
-						<td class="text-start">Available </td>
-						<td class="text-start row g-3">
-							<div class="col-auto">
-								<input type="text" class="form-control" placeholder="Input">
-							</div>
-							<div class="col-auto">
-								<button id="090" class="btn btn-outline-danger">OFF</button>
-							</div>
-						</td>
+						<td>Indicator 1</td>
+						<td class="text-start">Active</td>
 					</tr>
 					<tr>
-						<td>Boolean 2</td>
-						<td class="text-start">Available</td>
-						<td class="text-start row g-3">
-							<div class="col-auto">
-								<input type="text" class="form-control" placeholder="Input">
-							</div>
-							<div class="col-auto">
-								<button id="090" class="btn btn-outline-danger">OFF</button>
-							</div>
-						</td>
+						<td>Indicator 2</td>
+						<td class="text-start">Active</td>
 					</tr>
 					<tr>
-						<td>Boolean 3</td>
-						<td class="text-start">Available</td>
-						<td class="text-start row g-3">
-							<div class="col-auto">
-								<input type="text" class="form-control" placeholder="Input">
-							</div>
-							<div class="col-auto">
-								<button id="090" class="btn btn-outline-danger">OFF</button>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Boolean 4</td>
-							<td class="text-start">
-								Available
-							</td>
-						<td class="text-start row g-3">
-							<div class="col-auto">
-								<input type="text" class="form-control" placeholder="Input">
-							</div>
-							<div class="col-auto">
-								<button id="090" class="btn btn-outline-danger">OFF</button>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Boolean 5</td>
-							<td class="text-start">
-								Available
-							</td>
-						<td class="text-start row g-3">
-							<div class="col-auto">
-								<input type="text" class="form-control" placeholder="Input">
-							</div>
-							<div class="col-auto">
-								<button id="090" class="btn btn-outline-danger">OFF</button>
-							</div>
-						</td>
+						<td>Indicator 3</td>
+						<td class="text-start">Active</td>
 					</tr>
 				</tbody>
 			</table>
