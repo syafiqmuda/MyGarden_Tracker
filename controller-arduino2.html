@@ -120,8 +120,8 @@
 						<div class="card-header">
 							<h5 class="card-title mb-0">Boolean Controller</h5>
 						</div>
-						<div class="card-body row">
-							<iframe id="iframe" scrolling="no" frameborder="0" onload="resizeIframe(this)" src="arduino-bool_ctrl.php"></iframe>
+						<div class="card-body row ratio" style="--bs-aspect-ratio: 30%;">
+							<iframe id="iframe" scrolling="yes" frameborder="0" src="arduino-bool_ctrl.php"></iframe>
 						</div>
 					</div>
 				
@@ -129,8 +129,8 @@
 						<div class="card-header">
 							<h5 class="card-title mb-0">Numeric Controller</h5>
 						</div>
-						<div class="card-body row">
-							<iframe id="iframe2" scrolling="no" frameborder="0" onload="resizeIframe(this)" src="arduino-num_ctrl.php"></iframe>
+						<div class="card-body row ratio" style="--bs-aspect-ratio: 30%;">
+							<iframe id="iframe2" scrolling="yes" frameborder="0" src="arduino-num_ctrl.php"></iframe>
 						</div>
 					</div>	
 					
@@ -138,8 +138,8 @@
 						<div class="card-header">
 							<h5 class="card-title mb-0">Boolean Indicator</h5>
 						</div>
-						<div class="card-body row">
-							<iframe id="iframe3" scrolling="no" frameborder="0" onload="resizeIframe(this)" src="arduino-bool_indr.php"></iframe>
+						<div class="card-body row ratio" style="--bs-aspect-ratio: 15%;">
+							<iframe id="iframe3" scrolling="yes" frameborder="0" src="arduino-bool_indr.php"></iframe>
 						</div>
 					</div>
 
@@ -147,8 +147,8 @@
 						<div class="card-header">
 							<h5 class="card-title mb-0">Numeric Indicator</h5>
 						</div>
-						<div class="card-body row">
-							<iframe id="iframe4" scrolling="no" frameborder="0" onload="resizeIframe(this)" src="arduino-num_indr.php"></iframe>
+						<div class="card-body row ratio" style="--bs-aspect-ratio: 20%;">
+							<iframe id="iframe4" scrolling="yes" frameborder="0" src="arduino-num_indr.php"></iframe>
 						</div>
 					</div>
 
@@ -184,35 +184,5 @@
 		</div>
 	</div>
 	<script src="js/app.js"></script>
-	<script>
-		// Selecting the iframe element
-		var iframe = document.getElementById("iframe");
-		var iframe2 = document.getElementById("iframe2");
-		
-		// Adjusting the iframe height onload event
-		iframe.onload = function(){
-			iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-			iframe.style.width  = iframe.contentWindow.document.body.scrollWidth + 'px';
-		}
-
-		// Adjusting the iframe height onload event
-		iframe2.onload = function(){
-			iframe2.style.height = iframe2.contentWindow.document.body.scrollHeight + 'px';
-			iframe2.style.width  = iframe2.contentWindow.document.body.scrollWidth + 'px';
-		}
-
-		// Adjusting the iframe height onload event
-		iframe3.onload = function(){
-			iframe3.style.height = iframe3.contentWindow.document.body.scrollHeight + 'px';
-			iframe3.style.width  = iframe3.contentWindow.document.body.scrollWidth + 'px';
-		}
-
-		// Adjusting the iframe height onload event
-		iframe4.onload = function(){
-			iframe4.style.height = iframe4.contentWindow.document.body.scrollHeight + 'px';
-			iframe4.style.width  = iframe4.contentWindow.document.body.scrollWidth + 'px';
-		}
-	</script>
-
 </body>
 </html>
