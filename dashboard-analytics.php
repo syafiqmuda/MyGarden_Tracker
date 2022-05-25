@@ -14,8 +14,8 @@
 	<!-- CSS -->
 	<link href="css/modern.css" rel="stylesheet">
 	
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -70,7 +70,7 @@
 				<div class="sidebar-user">
 					<img src="img/avatars/user-2.png" class="img-fluid rounded-circle mb-2" />
 					<div class="fw-bold">User</div>
-					<small>(version 1.0 - beta)</small>
+					<small>(version 1.4 - beta)</small>
 				</div>
 
 				<ul class="sidebar-nav">
@@ -92,7 +92,7 @@
 							<i class="align-middle me-2 fas fa-fw fa-leaf"></i> <span class="align-middle">Plant Database</span>
 						</a>
 						<ul id="garden" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="garden-listplant">List of Plant</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="garden-listplant.php">List of Plant</a></li>
 						</ul>
 					</li>
 
@@ -127,10 +127,6 @@
 					<i class="hamburger align-self-center"></i>
 				</a>
 
-				<form class="d-none d-sm-inline-block">
-					<input class="form-control form-control-lite" type="text" placeholder="Search projects...">
-				</form>
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item dropdown ms-lg-2">
@@ -138,7 +134,7 @@
 								<i class="align-middle fas fa-cog"></i>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#" style="color: red"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Sign out</a>
+								<a class="dropdown-item" href="index.html" onclick="return confirm('Are you sure want to logout?')" style="color: red"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Sign out</a>
 							</div>
 						</li>
 					</ul>
