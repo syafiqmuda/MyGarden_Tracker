@@ -1,22 +1,6 @@
 <?php
 // Database Connection
 include "sql/config.php";
-
-//grab the table out of the database, name is ESPtable2 in this case
-$query = "select * FROM ESPtable2";
-$result = mysqli_query( $connection, $query );
-$resultcheck = mysqli_num_rows( $result );
-
-while ( $row = mysqli_fetch_array( $result ) ) {
-	$unit_id = $row[ 'id' ];
-
-	$bool_1 = $row[ 'RECEIVED_BOOL1' ];
-	$bool_1 = $row[ 'RECEIVED_BOOL1' ];
-	$bool_2 = $row[ 'RECEIVED_BOOL2' ];
-	$bool_3 = $row[ 'RECEIVED_BOOL3' ];
-	$bool_4 = $row[ 'RECEIVED_BOOL4' ];
-	$bool_5 = $row[ 'RECEIVED_BOOL5' ];
-}
 ?>
 
 <!DOCTYPE html>
@@ -114,9 +98,6 @@ while ( $row = mysqli_fetch_array( $result ) ) {
 			<a class="sidebar-toggle d-flex me-2">
 					<i class="hamburger align-self-center"></i>
 				</a>
-			<form class="d-none d-sm-inline-block">
-				<input class="form-control form-control-lite" type="text" placeholder="Search projects...">
-			</form>
 
 			<div class="navbar-collapse collapse">
 				<ul class="navbar-nav ms-auto">
@@ -137,13 +118,13 @@ while ( $row = mysqli_fetch_array( $result ) ) {
 
 				<div class="header">
 					<h1 class="header-title">
-							Arduino Controller <?= $unit_id?>
+							Arduino Controller
 						</h1>
 					<p class="header-subtitle">Here is the information on the selected arduino device that are installed at the selected plant and area to monitor the data about plant condition.</p>
 				</div>
 
 				<div class="row">
-					<div class="col-6 col-md-6 col-xxl-6 d-flex">
+					<div class="col-md-6 d-flex">
 						<div class="card flex-fill w-100">
 							<div class="card-header">
 								<div class="card-actions float-end">
