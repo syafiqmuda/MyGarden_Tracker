@@ -68,7 +68,7 @@
 				<div class="sidebar-user">
 					<img src="img/avatars/user-2.png" class="img-fluid rounded-circle mb-2" />
 					<div class="fw-bold">User</div>
-					<small>(version 1.0 - beta)</small>
+					<small>(version 1.4 - beta)</small>
 				</div>
 
 				<ul class="sidebar-nav">
@@ -90,7 +90,7 @@
 							<i class="align-middle me-2 fas fa-fw fa-leaf"></i> <span class="align-middle">Plant Database</span>
 						</a>
 						<ul id="garden" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="garden-listplant">List of Plant</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="garden-listplant.php">List of Plant</a></li>
 						</ul>
 					</li>
 
@@ -100,7 +100,7 @@
 							<i class="align-middle me-2 fas fa-fw fa-microchip"></i> <span class="align-middle">Arduino Controller</span>
 						</a>
 						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="controller-arduino1.php">Arduino 1</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="controller-arduino1.html">Arduino 1</a></li>
 						</ul>
 					</li>
 
@@ -131,7 +131,7 @@
 								<i class="align-middle fas fa-cog"></i>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#" style="color: red"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Sign out</a>
+								<a class="dropdown-item" href="index.html" onclick="return confirm('Are you sure want to logout?')" style="color: red"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Sign out</a>
 							</div>
 						</li>
 					</ul>
