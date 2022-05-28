@@ -8,57 +8,57 @@ The ESP will send a link like the one above but with more than just b1. It will 
 foreach($_REQUEST as $key => $value)  //Save the received value to the hey variable. Save each cahracter after the "&"
 {
 	//Now we detect if we recheive the id, the password, unit, or a value to update
-if($key =="id"){
-$unit = $value;
-}	
-if($key =="pw"){
-$pass = $value;
-}	
-if($key =="un"){
-$update_number = $value;
-}
-	
-if($update_number == 1)
-{
-	if($key =="n1"){
-		$sent_nr_1 = $value;
-	}			
-}
-else if($update_number == 2)
-{
-	if($key =="n2"){
-	$sent_nr_2 = $value;
-	}			
-}
-else if($update_number == 3)
-{
-	if($key =="n3"){
-	$sent_nr_3 = $value;
-	}			
-}
-else if($update_number == 4)
-{
-	if($key =="n4"){
-	$sent_nr_4 = $value;
-	}			
-}	
-	
-else if($update_number == 5)
+	if($key =="id"){
+		$unit = $value;
+	}	
+	if($key =="pw"){
+		$pass = $value;
+	}	
+	if($key =="un"){
+		$update_number = $value;	
+	}
+		
+	if($update_number == 1)
 	{
-	if($key =="b6"){
-	$sent_bool_1 = $value;
+		if($key =="n1"){
+			$sent_nr_1 = $value;
+		}			
+	}
+	else if($update_number == 2)
+	{
+		if($key =="n2"){
+			$sent_nr_2 = $value;
+		}			
+	}
+	else if($update_number == 3)
+	{
+		if($key =="n3"){
+			$sent_nr_3 = $value;
+		}			
+	}
+	else if($update_number == 4)
+	{
+		if($key =="n4"){
+			$sent_nr_4 = $value;
+		}			
 	}	
-	if($key =="b7"){
-	$sent_bool_2 = $value;
-	}	
-	if($key =="b8"){
-	$sent_bool_3 = $value;
-	}	
-}
+		
+	else if($update_number == 5)
+		{
+		if($key =="b6"){
+			$sent_bool_1 = $value;
+		}	
+		if($key =="b7"){
+			$sent_bool_2 = $value;
+		}	
+		if($key =="b8"){
+			$sent_bool_3 = $value;
+		}	
+	}
 }//End of foreach
 
 
-include("config.php"); 	//We include the database_connect.php which has the data for the connection to the database
+include("sql/config.php"); 	//We include the database_connect.php which has the data for the connection to the database
 
 
 // Check  the connection
