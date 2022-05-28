@@ -35,6 +35,7 @@ if(isset($_POST["input"])){
 	header("Refresh:0");
 }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,12 +59,12 @@ if(isset($_POST["input"])){
 						<form method="post">
 							<td class="text-center">
 								<div class="progress">
-									<div class="progress-bar" role="progressbar" style="width: <?= trim($B1value)?>%" aria-valuenow="<?= trim($B1value)?>" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar" role="progressbar" style="width:<?= $B1value?>%" aria-valuenow="<?= $B1value?>" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 							</td>
 							<td class="text-start row g-3">
 								<div class="col-auto">
-									<input type="text" name="value" class="form-control" placeholder="<?= trim($B1value)?>">
+									<input type="text" name="value" class="form-control" placeholder="<?= $B1value?>">
 								</div>
 								<div class="col-auto">
 									<button type="submit" name="input" class="btn btn-outline-success" value="RECEIVED_NUM1">Submit</button>
@@ -76,12 +77,12 @@ if(isset($_POST["input"])){
 						<form method="post">
 							<td class="text-center">
 								<div class="progress">
-									<div class="progress-bar" role="progressbar" style="width: <?= trim($B2value)?>%" aria-valuenow="<?= trim($B2value)?>" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar" role="progressbar" style="width: <?= $B2value?>%" aria-valuenow="<?= $B2value?>" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 							</td>
 							<td class="text-start row g-3">
 								<div class="col-auto">
-									<input type="text" name="value" class="form-control" placeholder="<?= trim($B2value)?>">
+									<input type="text" name="value" class="form-control" placeholder="<?= $B2value?>">
 								</div>
 								<div class="col-auto">
 									<button type="submit" name="input" class="btn btn-outline-success" value="RECEIVED_NUM2">Submit</button>
@@ -94,12 +95,12 @@ if(isset($_POST["input"])){
 						<form method="post">
 							<td class="text-center">
 								<div class="progress">
-									<div class="progress-bar" role="progressbar" style="width: <?= trim($B3value)?>%" aria-valuenow="<?= trim($B3value)?>" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar" role="progressbar" style="width: <?= $B3value?>%" aria-valuenow="<?= $B3value?>" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 							</td>
 							<td class="text-start row g-3">
 								<div class="col-auto">
-									<input type="text" name="value" class="form-control" placeholder="<?= trim($B3value)?>">
+									<input type="text" name="value" class="form-control" placeholder="<?= $B3value?>">
 								</div>
 								<div class="col-auto">
 									<button type="submit" name="input" class="btn btn-outline-success" value="RECEIVED_NUM3">Submit</button>
@@ -112,12 +113,12 @@ if(isset($_POST["input"])){
 						<form method="post">
 							<td class="text-center">
 								<div class="progress">
-									<div class="progress-bar" role="progressbar" style="width: <?= trim($B4value)?>%" aria-valuenow="<?= trim($B4value)?>" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar" role="progressbar" style="width: <?= $B4value?>%" aria-valuenow="<?= $B4value?>" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 							</td>
 							<td class="text-start row g-3">
 								<div class="col-auto">
-									<input type="text" name="value" class="form-control" placeholder="<?= trim($B4value)?>">
+									<input type="text" name="value" class="form-control" placeholder="<?= $B4value?>">
 								</div>
 								<div class="col-auto">
 									<button type="submit" name="input" class="btn btn-outline-success" value="RECEIVED_NUM4">Submit</button>
@@ -130,12 +131,12 @@ if(isset($_POST["input"])){
 						<form method="post">
 							<td class="text-center">
 								<div class="progress">
-									<div class="progress-bar" role="progressbar" style="width: <?= trim($B5value)?>%" aria-valuenow="<?= trim($B5value)?>" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar" role="progressbar" style="width: <?= $B5value?>%" aria-valuenow="<?= $B5value?>" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 							</td>
 							<td class="text-start row g-3">
 								<div class="col-auto">
-									<input type="text" name="value" class="form-control" placeholder="<?= trim($B5value)?>">
+									<input type="text" name="value" class="form-control" placeholder="<?= $B5value?>">
 								</div>
 								<div class="col-auto">
 									<button type="submit" name="input" class="btn btn-outline-success" value="RECEIVED_NUM5">Submit</button>
