@@ -127,7 +127,7 @@
 						<?php
 						// SQL Query
 						$sql = "SELECT * FROM plant";
-						$result = mysqli_query($connection, $sql);
+						$result = mysqli_query($con, $sql);
                         $resultcheck = mysqli_num_rows ($result);
 
 						// SQL Check

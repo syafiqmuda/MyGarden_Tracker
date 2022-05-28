@@ -9,7 +9,7 @@
 
 		// Query
 		$sql = "SELECT * from plant WHERE p_id = '$id'";
-		$result = mysqli_query($connection, $sql);
+		$result = mysqli_query($con, $sql);
 
 		// Check and Fetch
 		if (mysqli_num_rows($result) > 0){
@@ -72,7 +72,7 @@
 
 		//Query
         $sql = "UPDATE plant SET p_name=?, p_genus=?, p_species=?, p_type=?, p_location=?, p_status=?, p_image=?, p_recent=? WHERE p_id=?";
-        $stmt = mysqli_prepare($connection, $sql);
+        $stmt = mysqli_prepare($con, $sql);
 
         //Bind 
         mysqli_stmt_bind_param($stmt, "ssssssssi", $plantName, $plantGenus, $plantSpecies, $plantType, $plantLocation, $plantStatus, $directory, $plantRecent, $plantId);

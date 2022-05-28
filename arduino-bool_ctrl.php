@@ -5,7 +5,7 @@ $unitId	= 1;
 
 // Query
 $sql = "SELECT * from ESPtable2 WHERE id = '$unitId'";
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($con, $sql);
 
 // Check and Fetch
 if (mysqli_num_rows($result) > 0){
@@ -24,7 +24,7 @@ if(isset($_POST["value"])){
 	$value 	= trim($_POST["value"]);
 
 	//SQL
-	mysqli_query($connection,"UPDATE ESPtable2 SET $button = '{$value}' WHERE id = $unitId");
+	mysqli_query($con,"UPDATE ESPtable2 SET $button = '{$value}' WHERE id = $unitId");
 	header("Refresh:0");
 }
 ?>

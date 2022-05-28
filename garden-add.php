@@ -54,7 +54,7 @@
 
 			//Query
 			$sql = "INSERT INTO plant (p_name, p_genus, p_species, p_type, p_location, p_status, p_image, p_recent) VALUE (?,?,?,?,?,?,?,?)" ;
-			$stmt = mysqli_prepare($connection, $sql);
+			$stmt = mysqli_prepare($con, $sql);
 	
 			//Bind + image
 			$image = $target_dir.htmlspecialchars( basename( $_FILES["imageUpload"]["name"]));

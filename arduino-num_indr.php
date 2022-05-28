@@ -6,7 +6,7 @@ $unitId	= 1;
 
 // Query
 $sql = "SELECT * from esptable2 WHERE id = '$unitId'";
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($con, $sql);
 
 // Check and Fetch
 if (mysqli_num_rows($result) > 0){

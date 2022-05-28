@@ -8,7 +8,7 @@
 
         // Get Image Data
         $sql = "SELECT * from plant WHERE p_id = '$plantId'";
-        $result = mysqli_query($connection, $sql);
+        $result = mysqli_query($con, $sql);
 
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_assoc($result);
@@ -17,7 +17,7 @@
             // Query (Delete)
             $sql = "DELETE FROM plant WHERE id = '$plantId'";
 
-            if(mysqli_query($connection, $sql)){
+            if(mysqli_query($con, $sql)){
                 echo "<script>alert('Data has been delete!');window.location='garden-listplant.php'</script>";
                 // Delete Image
                 if(file_exists($plantImage)){

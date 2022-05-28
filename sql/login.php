@@ -8,7 +8,7 @@ if (isset($_POST['login'])){
 	
 	// SQL Query
 	$query = "select * FROM user where username = '$username' && password = '$password'";
-	$result = mysqli_query( $connection, $query );
+	$result = mysqli_query( $con, $query );
 	$resultcheck = mysqli_num_rows( $result );
 	
 	if ( $resultcheck > 0 ) {

@@ -148,7 +148,7 @@
 											<?php
 											// SQL
 											$sql = "SELECT * from plant";
-											$result = mysqli_query($connection, $sql);
+											$result = mysqli_query($con, $sql);
 
 											if (mysqli_num_rows($result) > 0){
 												while($row = mysqli_fetch_assoc($result)){
