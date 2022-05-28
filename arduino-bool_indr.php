@@ -16,6 +16,7 @@ if (mysqli_num_rows($result) > 0){
 	$B2value = $row['SENT_BOOL_2'];
 	$B3value = $row['SENT_BOOL_3'];
 }
+
 header("Refresh:5");
 ?>
 
