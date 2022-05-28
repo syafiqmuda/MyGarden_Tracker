@@ -4,7 +4,7 @@ include "sql/config.php";
 $unitId	= 1;
 
 // Query
-$sql = "SELECT * from esptable2 WHERE id = '$unitId'";
+$sql = "SELECT * from ESPtable2 WHERE id = '$unitId'";
 $result = mysqli_query($connection, $sql);
 
 // Check and Fetch

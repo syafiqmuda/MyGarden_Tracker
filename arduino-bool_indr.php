@@ -13,11 +13,12 @@ if (mysqli_num_rows($result) > 0){
 	$row = mysqli_fetch_assoc($result);
 
 	$B1value = $row['SENT_NUMBER_1'];
-	$B2value = $row['SENT_NUMBER_1'];
-	$B3value = $row['SENT_NUMBER_1'];
+	$B2value = $row['SENT_NUMBER_2'];
+	$B3value = $row['SENT_NUMBER_3'];
 }
 header("Refresh:5");
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,7 +52,7 @@ header("Refresh:5");
 						?>				
 					</tr>
 					<tr>
-					<td>Indicator 1</td>
+					<td>Indicator 2</td>
 						<?php
 						if($B2value == 1){
 						?>
@@ -66,7 +67,7 @@ header("Refresh:5");
 						?>	
 					</tr>
 					<tr>
-					<td>Indicator 1</td>
+					<td>Indicator 3</td>
 						<?php
 						if($B3value == 1){
 						?>
