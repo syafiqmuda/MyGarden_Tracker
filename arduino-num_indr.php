@@ -46,7 +46,7 @@ header("Refresh:5");
 						<td>Indicator 1</td>
 						<td class="text-center">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: <?= $B1value?>%" aria-valuenow="<?= $B1value?>" aria-valuemin="0" aria-valuemax="500"></div>
+								<div class="progress-bar" role="progressbar" style="width: <?= $B1value?>%" aria-valuenow="<?= $B1value?>" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</td>
 						<?php
@@ -73,7 +73,7 @@ header("Refresh:5");
 						<td>Indicator 2</td>
 						<td class="text-center">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: <?= $B2value?>%" aria-valuenow="<?= $B2value?>" aria-valuemin="0" aria-valuemax="500"></div>
+								<div class="progress-bar" role="progressbar" style="width: <?= $B2value?>%" aria-valuenow="<?= $B2value?>" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</td>
 						<?php
@@ -100,7 +100,7 @@ header("Refresh:5");
 						<td>Indicator 3</td>
 						<td class="text-center">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: <?= $B3value?>%" aria-valuenow="<?= $B3value?>" aria-valuemin="0" aria-valuemax="500"></div>
+								<div class="progress-bar" role="progressbar" style="width: <?= $B3value?>%" aria-valuenow="<?= $B3value?>" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</td>
 						<?php
@@ -127,7 +127,7 @@ header("Refresh:5");
 						<td>Indicator 4</td>
 						<td class="text-center">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: <?= $B4value?>%" aria-valuenow="<?= $B4value?>" aria-valuemin="0" aria-valuemax="500"></div>
+								<div class="progress-bar" role="progressbar" style="width: <?= $B4value?>%" aria-valuenow="<?= $B4value?>" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</td>
 						<?php
