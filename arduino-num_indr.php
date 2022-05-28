@@ -5,7 +5,7 @@ include "sql/config.php";
 $unitId	= 1;
 
 // Query
-$sql = "SELECT * from esptable2 WHERE id = '$unitId'";
+$sql = "SELECT * from ESPtable2 WHERE id = '$unitId'";
 $result = mysqli_query($con, $sql);
 
 // Check and Fetch
@@ -45,7 +45,7 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B1value > 100 && $B1value < 500){
+						if($B1value > 350 && $B1value < 500){
 						?>
 							<td class="text-center text-warning"><?= $B1value?> (Warning)</td>
 						<?php
@@ -72,7 +72,7 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B2value > 100 && $B2value < 500){
+						if($B2value > 350 && $B2value < 500){
 						?>
 							<td class="text-center text-warning"><?= $B2value?> (Warning)</td>
 						<?php
@@ -99,7 +99,7 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B3value > 100 && $B3value < 500){
+						if($B3value > 350 && $B3value < 500){
 						?>
 							<td class="text-center text-warning"><?= $B3value?> (Warning)</td>
 						<?php
@@ -126,7 +126,7 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B4value > 100 && $B4value < 500){
+						if($B4value > 350 && $B4value < 500){
 						?>
 							<td class="text-center text-warning"><?= $B4value?> (Warning)</td>
 						<?php
