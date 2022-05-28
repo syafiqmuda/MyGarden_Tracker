@@ -12,10 +12,15 @@ $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) > 0){
 	$row = mysqli_fetch_assoc($result);
 
-	$B1value = $row['SENT_NUMBER_1'];
-	$B2value = $row['SENT_NUMBER_2'];
-	$B3value = $row['SENT_NUMBER_3'];
-	$B4value = $row['SENT_NUMBER_4'];
+	$B1 = $row['SENT_NUMBER_1']/1023 * 100;
+	$B2 = $row['SENT_NUMBER_2']/1023 * 100;
+	$B3 = $row['SENT_NUMBER_3']/1023 * 100;
+	$B4 = $row['SENT_NUMBER_4']/1023 * 100;
+
+	$B1value = round($B1, 0);
+	$B2value = round($B2, 0);
+	$B3value = round($B3, 0);
+	$B4value = round($B4, 0);
 }
 header("Refresh:5");
 ?>
@@ -45,21 +50,21 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B1value > 350 && $B1value < 500){
+						if($B1value < 40){
+						?>
+							<td class="text-center text-success"><?= $B1value?> (Normal)</td>
+						<?php
+						}
+
+						else if($B1value > 40 && $B1value < 70){
 						?>
 							<td class="text-center text-warning"><?= $B1value?> (Warning)</td>
 						<?php
 						}
 
-						else if($B1value > 500){
-						?>
-							<td class="text-center text-danger"><?= $B1value?> (Danger)</td>
-						<?php
-						}
-
 						else{
 						?>
-							<td class="text-center text-success"><?= $B1value?> (Normal)</td>
+							<td class="text-center text-danger"><?= $B1value?> (Danger)</td>
 						<?php
 						}
 						?>
@@ -72,21 +77,21 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B2value > 350 && $B2value < 500){
+						if($B2value < 40){
+						?>
+							<td class="text-center text-success"><?= $B2value?> (Normal)</td>
+						<?php
+						}
+
+						else if($B2value > 40 && $B2value < 70){
 						?>
 							<td class="text-center text-warning"><?= $B2value?> (Warning)</td>
 						<?php
 						}
 
-						else if($B2value > 500){
-						?>
-							<td class="text-center text-danger"><?= $B2value?> (Danger)</td>
-						<?php
-						}
-
 						else{
 						?>
-							<td class="text-center text-success"><?= $B2value?> (Normal)</td>
+							<td class="text-center text-danger"><?= $B2value?> (Danger)</td>
 						<?php
 						}
 						?>
@@ -99,21 +104,21 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B3value > 350 && $B3value < 500){
+						if($B3value < 40){
+						?>
+							<td class="text-center text-success"><?= $B3value?> (Normal)</td>
+						<?php
+						}
+
+						else if($B3value > 40 && $B3value < 70){
 						?>
 							<td class="text-center text-warning"><?= $B3value?> (Warning)</td>
 						<?php
 						}
 
-						else if($B3value > 500){
-						?>
-							<td class="text-center text-danger"><?= $B3value?> (Danger)</td>
-						<?php
-						}
-
 						else{
 						?>
-							<td class="text-center text-success"><?= $B3value?> (Normal)</td>
+							<td class="text-center text-danger"><?= $B3value?> (Danger)</td>
 						<?php
 						}
 						?>
@@ -126,21 +131,21 @@ header("Refresh:5");
 							</div>
 						</td>
 						<?php
-						if($B4value > 350 && $B4value < 500){
+						if($B4value < 40){
+						?>
+							<td class="text-center text-success"><?= $B4value?> (Normal)</td>
+						<?php
+						}
+
+						else if($B4value > 40 && $B4value < 70){
 						?>
 							<td class="text-center text-warning"><?= $B4value?> (Warning)</td>
 						<?php
 						}
 
-						else if($B4value > 500){
-						?>
-							<td class="text-center text-danger"><?= $B4value?> (Danger)</td>
-						<?php
-						}
-
 						else{
 						?>
-							<td class="text-center text-success"><?= $B4value?> (Normal)</td>
+							<td class="text-center text-danger"><?= $B4value?> (Danger)</td>
 						<?php
 						}
 						?>
