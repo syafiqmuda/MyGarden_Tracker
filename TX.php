@@ -69,24 +69,24 @@ if (mysqli_connect_errno()) {
 //Now we update the values in database
 if($update_number == 1)	//If the received data is for SENT_NUMBER_1, we update that value
 	{
-		mysqli_query($con,"UPDATE esptable2 SET SENT_NUMBER_1 = $sent_nr_1 WHERE id=$unit AND PASSWORD=$pass");	
+		mysqli_query($connection,"UPDATE esptable2 SET SENT_NUMBER_1 = $sent_nr_1 WHERE id=$unit AND PASSWORD=$pass");	
 	}
 else if($update_number == 2)	//The same and so on...
 	{
-		mysqli_query($con,"UPDATE esptable2 SET SENT_NUMBER_2 = $sent_nr_2 WHERE id=$unit AND PASSWORD=$pass");	;	
+		mysqli_query($connection,"UPDATE esptable2 SET SENT_NUMBER_2 = $sent_nr_2 WHERE id=$unit AND PASSWORD=$pass");	;	
 	}
 else if($update_number == 3)
 	{
-		mysqli_query($con,"UPDATE esptable2 SET SENT_NUMBER_3 = $sent_nr_3 WHERE id=$unit AND PASSWORD=$pass");	;	
+		mysqli_query($connection,"UPDATE esptable2 SET SENT_NUMBER_3 = $sent_nr_3 WHERE id=$unit AND PASSWORD=$pass");	;	
 	}
 else if($update_number == 4)
 	{
-		mysqli_query($con,"UPDATE esptable2 SET SENT_NUMBER_4 = $sent_nr_4 WHERE id=$unit AND PASSWORD=$pass");	;	
+		mysqli_query($connection,"UPDATE esptable2 SET SENT_NUMBER_4 = $sent_nr_4 WHERE id=$unit AND PASSWORD=$pass");	;	
 	}
 
 else if($update_number == 5)
 	{
-		mysqli_query($con,"UPDATE esptable2 SET SENT_BOOL_1 = $sent_bool_1, SENT_BOOL_2 = $sent_bool_2, SENT_BOOL_3 = $sent_bool_3 
+		mysqli_query($connection,"UPDATE esptable2 SET SENT_BOOL_1 = $sent_bool_1, SENT_BOOL_2 = $sent_bool_2, SENT_BOOL_3 = $sent_bool_3 
 		WHERE id=$unit AND PASSWORD=$pass");	;	
 	}
 
@@ -97,7 +97,7 @@ date_default_timezone_set('UTC');
 $t1 = date("gi"); 	//This will return 1:23 as 123
 
 //Get all the values form the table on the database
-$result = mysqli_query($con,"SELECT * FROM esptable2");	//table select is esptable2, must be the same on yor database
+$result = mysqli_query($connection,"SELECT * FROM esptable2");	//table select is esptable2, must be the same on yor database
 
 //Loop through the table and filter out data for this unit id equal to the one taht we've received. 
 while($row = mysqli_fetch_array($result)) {
