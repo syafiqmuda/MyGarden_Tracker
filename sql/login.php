@@ -2,7 +2,9 @@
 include "config.php";
 session_start();
 
+
 if (isset($_POST['login'])){
+	// Get + Set
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
@@ -12,10 +14,10 @@ if (isset($_POST['login'])){
 	$resultcheck = mysqli_num_rows( $result );
 	
 	if ( $resultcheck > 0 ) {
-		$row = mysqli_fetch_assoc( $result );
 
-		// Retrieve individual field value
-		$_SESSION[ 'loginname' ] = $row[ "username" ];
+		// Get Data
+		$row = mysqli_fetch_assoc( $result );
+		$_SESSION['User'] = $row['username'];
 
 		header( "Location: ../dashboard-analytics.php" );
 	}
