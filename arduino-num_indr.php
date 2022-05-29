@@ -155,4 +155,7 @@ header("Refresh:5");
 		</div>
     </body>
     <script src="js/app.js"></script>
+	<script>
+		document.getElementsByClassName("disclaimer").style.display = "none";
+	</script>
 </html>
