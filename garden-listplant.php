@@ -1,5 +1,7 @@
 <?php
 	include "sql/config.php";
+	// Security check
+	include "sql/secure.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

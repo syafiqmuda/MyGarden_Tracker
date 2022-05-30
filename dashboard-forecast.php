@@ -1,3 +1,7 @@
+<?php
+// Security check
+include "sql/secure.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 

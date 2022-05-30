@@ -1,6 +1,8 @@
-<!-- Database -->
 <?php
+	// Database
 	include "sql/config.php";
+	// Security check
+	include "sql/secure.php";
 	
 	if (isset($_GET["id"])){
 

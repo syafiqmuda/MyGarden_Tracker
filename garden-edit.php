@@ -1,6 +1,8 @@
 <!-- Database -->
 <?php
 	include "sql/config.php";
+	// Security check
+	include "sql/secure.php";
 	
 	if (isset($_GET["update"])){
 
@@ -22,7 +24,7 @@
 			$plantType		= $row["p_type"];
 			$plantLocation	= $row["p_location"];
 			$plantStatus	= $row["p_status"];
-			$plantImage		= $row["p_image"];
+			$plantImage		= strtolower($row["p_image"]);
 			$plantActivites	= $row["p_recent"];
 		}
 	}

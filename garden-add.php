@@ -1,6 +1,8 @@
 <!-- Database -->
 <?php
 	include "sql/config.php";
+	// Security check
+	include "sql/secure.php";
 	
 	if (isset($_POST["submit"])){
 

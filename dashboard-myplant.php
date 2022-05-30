@@ -1,6 +1,8 @@
-<!-- Database -->
 <?php
-	include ("sql/config.php");
+// Database 
+include ("sql/config.php");
+// Security check
+include "sql/secure.php";
 ?>
 
 <!DOCTYPE html>
