@@ -12,7 +12,7 @@
 
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_assoc($result);
-			$plantImage		= $row["p_image"];
+			$plantImage		= strtolower($row["p_image"]);
 
             // Query (Delete)
             $sql = "DELETE FROM plant WHERE id = '$plantId'";

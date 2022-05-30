@@ -142,7 +142,7 @@
 								$plantType		= $row["p_type"];
 								$plantLocation	= $row["p_location"];
 								$plantStatus	= $row["p_status"];
-								$plantImage		= $row["p_image"];
+								$plantImage		= strtolower($row["p_image"]);
 								$plantActivites	= $row["p_recent"];
 						?>
 						<div class="col-sm-4">

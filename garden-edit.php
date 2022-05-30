@@ -62,12 +62,12 @@
 			}
 
 			// Update dir
-			$directory = $target_dir.htmlspecialchars( basename( $_FILES["imageUpload"]["name"]));
+			$directory = strtolower($target_dir.htmlspecialchars( basename( $_FILES["imageUpload"]["name"])));
 		}
 
 		else{
 			// Keep old dir
-			$directory = $plantImage;
+			$directory = strtolower($plantImage);
 		}
 
 		//Query
