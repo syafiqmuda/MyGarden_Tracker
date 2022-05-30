@@ -117,7 +117,7 @@
 			<div class="sidebar-content">
 				<div class="sidebar-user">
 					<img src="img/avatars/user-2.png" class="img-fluid rounded-circle mb-2" />
-					<div class="fw-bold">User</div>
+					<div class="fw-bold"><?= $userlogin?></div>
 					<small>(version 1.4 - beta)</small>
 				</div>
 

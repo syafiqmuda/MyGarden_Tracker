@@ -17,7 +17,7 @@ if (isset($_POST['login'])){
 
 		// Get Data
 		$row = mysqli_fetch_assoc( $result );
-		$_SESSION['User'] = $row['username'];
+		$_SESSION['iiUseriinX)/>\N#9yP2K,2R'] = $row['username'];
 
 		header( "Location: ../dashboard-analytics.php" );
 	}
