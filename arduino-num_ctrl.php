@@ -37,6 +37,11 @@ if(isset($_POST["input"])){
 ?>
 
 <!DOCTYPE html>
+<style>
+	.disclaimer{
+		display: none;
+	}
+</style>
 <html>
     <head>
         <!-- CSS -->

@@ -25,6 +25,11 @@ if (mysqli_num_rows($result) > 0){
 header("Refresh:5");
 ?>
 <!DOCTYPE html>
+<style>
+	.disclaimer{
+		display: none;
+	}
+</style>
 <html>
     <head>
         <!-- CSS -->

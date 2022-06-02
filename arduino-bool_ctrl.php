@@ -30,6 +30,11 @@ if(isset($_POST["value"])){
 ?>
 
 <!DOCTYPE html>
+<style>
+	.disclaimer{
+		display: none;
+	}
+</style>
 <html>
     <head>
         <!-- CSS -->
