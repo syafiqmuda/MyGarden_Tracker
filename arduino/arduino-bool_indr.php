@@ -1,5 +1,5 @@
 <?php
-include "sql/config.php";
+include "../sql/config.php";
 
 // Arduino id
 $unitId	= 1;
@@ -29,7 +29,7 @@ header("Refresh:5");
 <html>
     <head>
         <!-- CSS -->
-        <link href="css/modern.css" rel="stylesheet">
+        <link href="../css/modern.css" rel="stylesheet">
     </head>
     <body>
 		<div class="container-fluid">
@@ -91,5 +91,5 @@ header("Refresh:5");
 			</table>
 		</div>
     </body>
-    <script src="js/app.js"></script>
+    <script src="../js/app.js"></script>
 </html>

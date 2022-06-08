@@ -106,7 +106,7 @@ include "sql/secure.php";
 							<i class="align-middle me-2 fas fa-fw fa-microchip"></i> <span class="align-middle">Arduino Controller</span>
 						</a>
 						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="controller-arduino1.html">Arduino 1</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="controller-arduino1.html">View All Control</a></li>
 						</ul>
 					</li>
 

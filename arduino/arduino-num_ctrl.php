@@ -1,5 +1,5 @@
 <?php
-include "sql/config.php";
+include "../sql/config.php";
 
 // Arduino id
 $unitId	= 1;
@@ -45,7 +45,7 @@ if(isset($_POST["input"])){
 <html>
     <head>
         <!-- CSS -->
-        <link href="css/modern.css" rel="stylesheet">
+        <link href="../css/modern.css" rel="stylesheet">
     </head>
     <body>
 		<div class="container-fluid">
@@ -153,5 +153,5 @@ if(isset($_POST["input"])){
 			</table>
 		</div>
     </body>
-    <script src="js/app.js"></script>
+    <script src="../js/app.js"></script>
 </html>
