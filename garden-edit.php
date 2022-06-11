@@ -165,7 +165,7 @@
 							<i class="align-middle me-2 fas fa-fw fa-microchip"></i> <span class="align-middle">Arduino Controller</span>
 						</a>
 						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="controller-viewAll.html">View All Control</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="controller-viewAll.php">View All Control</a></li>
 						</ul>
 					</li>
 

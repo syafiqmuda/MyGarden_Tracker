@@ -1,3 +1,8 @@
+<?php
+include "sql/config.php";
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,45 +119,41 @@
 				<div class="container-fluid">
 					<div class="header">
 						<h1 class="header-title">Arduino Controller</h1>
-						<p class="header-subtitle">Here is the information on the selected arduino device that are installed at the selected plant and area to monitor the data about plant condition.</p>
+						<p class="header-subtitle">Below is the Arduino device that are install and available to use in garden.</p>
 					</div>
 
 					<div class="card">
 						<div class="card-header">
 							<h5 class="card-title mb-0">Boolean Controller</h5>
 						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 30%;">
-							<iframe id="iframe" scrolling="yes" frameborder="0" src="arduino/arduino-bool_ctrl.php"></iframe>
+						<div class="card-body">
+							<table class="table table-striped my-0">
+								<thead>
+									<tr>
+										<th>Controller</th>
+										<th class="text-start">Grid</th>
+										<th class="text-start">Geology</th>
+										<th class="text-start">Option</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Arduino 1</td>
+										<td>Grid 1,1</td>
+										<td>
+											<a href="https://maps.google.com/?q=5.805595,102.150761">5.805595, 102.150761</a>
+										</td>
+										<td class="text-start">
+											<form method="post">
+												<input type="hidden" name="button" value="RECEIVED_BOOL1">
+													<button type="submit" name="value" class="btn btn-outline-success" value="1">View</button>
+											</form>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-				
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Numeric Controller</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 30%;">
-							<iframe id="iframe2" scrolling="yes" frameborder="0" src="arduino/arduino-num_ctrl.php"></iframe>
-						</div>
-					</div>	
-					
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Boolean Indicator</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 16%;">
-							<iframe id="iframe3" scrolling="yes" frameborder="0" src="arduino/arduino-bool_indr.php"></iframe>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Numeric Indicator</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 20%;">
-							<iframe id="iframe4" scrolling="yes" frameborder="0" src="arduino/arduino-num_indr.php"></iframe>
-						</div>
-					</div>
-
 				</div>
 			</main>
 			<footer class="footer">

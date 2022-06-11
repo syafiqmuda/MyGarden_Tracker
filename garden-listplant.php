@@ -76,7 +76,7 @@
 							<i class="align-middle me-2 fas fa-fw fa-microchip"></i> <span class="align-middle">Arduino Controller</span>
 						</a>
 						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="controller-viewAll.html">View All Control</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="controller-viewAll.php">View All Control</a></li>
 						</ul>
 					</li>
 
@@ -134,7 +134,7 @@
 
 								<!-- Table Start -->
 								<div class="card-body">
-									<button class="btn btn-success mb-3">Add New Plant</button>
+									<a class="btn btn-success mb-3" href="garden-add.php">Add New Plant</a>
 									<table id="datatables" class="table table-striped" style="width:100%">
 										<thead>
 											<tr>

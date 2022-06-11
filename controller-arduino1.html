@@ -23,14 +23,14 @@
 		gtag('js', new Date());
 
 		gtag('config', 'UA-120946860-7');
+
+		function resizeIframe(obj) {
+			obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+		  }
 	</script>
 </head>
 
 <body>
-	<div class="splash active">
-		<div class="splash-icon"></div>
-	</div>
-
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<a class="sidebar-brand" href="index.html">
@@ -72,7 +72,7 @@
 							<i class="align-middle me-2 fas fa-fw fa-microchip"></i> <span class="align-middle">Arduino Controller</span>
 						</a>
 						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item active"><a class="sidebar-link" href="controller-viewAll.html">View All Control</a></li>
+							<li class="sidebar-item active"><a class="sidebar-link" href="controller-viewAll.php">View All Control</a></li>
 						</ul>
 					</li>
 
@@ -113,46 +113,16 @@
 			<main class="content">
 				<div class="container-fluid">
 					<div class="header">
-						<h1 class="header-title">Arduino Controller</h1>
+						<h1 class="header-title">Arduino Controller 1</h1>
 						<p class="header-subtitle">Here is the information on the selected arduino device that are installed at the selected plant and area to monitor the data about plant condition.</p>
 					</div>
-
 					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Boolean Controller</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 30%;">
-							<iframe id="iframe" scrolling="yes" frameborder="0" src="arduino/arduino-bool_ctrl.php"></iframe>
+						<div class="card-body">
+							<div class="row">
+								<iframe id="iframe" scrolling="no" frameborder="0" src="arduino/arduino-plant.php" onload="resizeIframe(this)"></iframe>
+							</div>
 						</div>
 					</div>
-				
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Numeric Controller</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 30%;">
-							<iframe id="iframe2" scrolling="yes" frameborder="0" src="arduino/arduino-num_ctrl.php"></iframe>
-						</div>
-					</div>	
-					
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Boolean Indicator</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 16%;">
-							<iframe id="iframe3" scrolling="yes" frameborder="0" src="arduino/arduino-bool_indr.php"></iframe>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Numeric Indicator</h5>
-						</div>
-						<div class="card-body row ratio" style="--bs-aspect-ratio: 20%;">
-							<iframe id="iframe4" scrolling="yes" frameborder="0" src="arduino/arduino-num_indr.php"></iframe>
-						</div>
-					</div>
-
 				</div>
 			</main>
 			<footer class="footer">
