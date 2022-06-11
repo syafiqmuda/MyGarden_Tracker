@@ -1,7 +1,5 @@
 <?php
 include "sql/config.php";
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,33 +121,49 @@ include "sql/config.php";
 					</div>
 
 					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Boolean Controller</h5>
-						</div>
 						<div class="card-body">
+							<!-- <a class="btn btn-success mb-2" href="#">Install Arduino</a> -->
 							<table class="table table-striped my-0">
 								<thead>
 									<tr>
 										<th>Controller</th>
-										<th class="text-start">Grid</th>
+										<th class="text-start">Location</th>
 										<th class="text-start">Geology</th>
 										<th class="text-start">Option</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php
+									// Query 1
+									$sql = "SELECT * from location";
+									$result = mysqli_query($con, $sql);
+
+									// Check and Fetch
+									if(mysqli_num_rows($result) > 0){
+										
+										while($row = mysqli_fetch_assoc($result)){
+											$lc_id		= $row['lc_id'];
+											$lc_ardId	= $row['lc_arduinoId'];
+											$lc_desc	= $row['lc_description'];
+											$lc_lat		= $row['lc_latitude'];
+											$lc_lon		= $row['lc_longitude'];
+									?>
 									<tr>
-										<td>Arduino 1</td>
-										<td>Grid 1,1</td>
+										<td>Arduino <?= $lc_ardId?></td>
+										<td><?= $lc_desc?></td>
 										<td>
-											<a href="https://maps.google.com/?q=5.805595,102.150761">5.805595, 102.150761</a>
+											<a href="https://maps.google.com/?q=<?= $lc_lat?>,<?= $lc_lon?>"><?= $lc_lat?>, <?= $lc_lon?></a>
 										</td>
 										<td class="text-start">
 											<form method="post">
-												<input type="hidden" name="button" value="RECEIVED_BOOL1">
-													<button type="submit" name="value" class="btn btn-outline-success" value="1">View</button>
+												<a class="btn btn-outline-success" href="controller-arduino<?= $lc_ardId?>.html">View</a>
 											</form>
 										</td>
 									</tr>
+									<?php
+										}
+									}
+									?>
 								</tbody>
 							</table>
 						</div>

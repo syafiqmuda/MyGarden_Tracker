@@ -68,29 +68,27 @@ if (mysqli_connect_errno()) {
 
 //Now we update the values in database
 if($update_number == 1)	//If the received data is for SENT_NUMBER_1, we update that value
-	{
-		mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_1 = $sent_nr_1 WHERE id=$unit AND PASSWORD=$pass");	
-	}
-	else if($update_number == 2)	//The same and so on...
-	{
-		mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_2 = $sent_nr_2 WHERE id=$unit AND PASSWORD=$pass");	;	
-	}
-	else if($update_number == 3)
-	{
-		mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_3 = $sent_nr_3 WHERE id=$unit AND PASSWORD=$pass");	;	
-	}
-	else if($update_number == 4)
-	{
-		mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_4 = $sent_nr_4 WHERE id=$unit AND PASSWORD=$pass");	;	
-	}
+{
+	mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_1 = $sent_nr_1 WHERE id=$unit AND PASSWORD=$pass");	
+}
+else if($update_number == 2)	//The same and so on...
+{
+	mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_2 = $sent_nr_2 WHERE id=$unit AND PASSWORD=$pass");	;	
+}
+else if($update_number == 3)
+{
+	mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_3 = $sent_nr_3 WHERE id=$unit AND PASSWORD=$pass");	;	
+}
+else if($update_number == 4)
+{
+	mysqli_query($con,"UPDATE ESPtable2 SET SENT_NUMBER_4 = $sent_nr_4 WHERE id=$unit AND PASSWORD=$pass");	;	
+}
 
-	else if($update_number == 5)
-	{
-		mysqli_query($con,"UPDATE ESPtable2 SET SENT_BOOL_1 = $sent_bool_1, SENT_BOOL_2 = $sent_bool_2, SENT_BOOL_3 = $sent_bool_3 
-		WHERE id=$unit AND PASSWORD=$pass");	;	
-	}
-
-
+else if($update_number == 5)
+{
+	mysqli_query($con,"UPDATE ESPtable2 SET SENT_BOOL_1 = $sent_bool_1, SENT_BOOL_2 = $sent_bool_2, SENT_BOOL_3 = $sent_bool_3 
+	WHERE id=$unit AND PASSWORD=$pass");	;	
+}
 
 //In case that you need the time from the internet, use this line
 date_default_timezone_set('UTC');

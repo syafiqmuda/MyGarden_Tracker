@@ -86,7 +86,7 @@
 			move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file);
 			
 			// alert
-            echo "<script>alert('Successfully add new facility');window.location.href='garden-view.php?id=$id'</script>";
+            echo "<script>alert('Plant updated');window.location.href='garden-view.php?id=$id'</script>";
         }
 
         else {

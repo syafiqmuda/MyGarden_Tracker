@@ -1,19 +1,7 @@
 <?php
 include "../sql/config.php";
-
-if(isset($_POST["value"])){
-
-	$button = trim($_POST["button"]);
-	$value 	= trim($_POST["value"]);
-
-	//SQL
-	mysqli_query($con,"UPDATE ESPtable2 SET $button = '{$value}' WHERE id = $unitId");
-	header("Refresh:0");
-}
-
 header("Refresh:5");
 ?>
-
 <!DOCTYPE html>
 <style>
 	.disclaimer{
