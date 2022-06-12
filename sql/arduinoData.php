@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) > 0){
 		$stmt = mysqli_prepare($con, $sql);
 
 		// Bind + Execute
-		mysqli_stmt_bind_param($stmt, "iiiii", $HUMID1, $TEMP1, $WATERLV1, $BTN1, $PUMP1);
+		mysqli_stmt_bind_param($stmt, "iiiii", $HUMID1, $WATERLV1, $TEMP1, $PUMP1, $BTN1);
 		mysqli_stmt_execute ($stmt);
 
 		// Query (TRANSFER ARDUINO INTO PLANTDATA 2)
@@ -56,7 +56,7 @@ if (mysqli_num_rows($result) > 0){
 		$stmt = mysqli_prepare($con, $sql);
 
 		// Bind + Execute
-		mysqli_stmt_bind_param($stmt, "iiiii", $HUMID2, $TEMP2, $WATERLV2, $BTN2, $PUMP2);
+		mysqli_stmt_bind_param($stmt, "iiiii", $HUMID2, $WATERLV2, $TEMP2, $PUMP2, $BTN2);
 		mysqli_stmt_execute ($stmt);
 	}
 
