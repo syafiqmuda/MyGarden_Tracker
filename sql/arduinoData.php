@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0){
 	$stmt = mysqli_prepare($con, $sql);
 
 	// Bind
-	mysqli_stmt_bind_param($stmt, "issssssssss", $unitId, $HUMID1, $HUMID2, $TEMP1, $TEMP2, $WATERLV1, $WATERLV1, $BTN1, $BTN2, $PUMP1, $PUMP2);
+	mysqli_stmt_bind_param($stmt, "issssssssss", $unitId, $HUMID1, $HUMID2, $TEMP1, $TEMP2, $WATERLV1, $WATERLV2, $BTN1, $BTN2, $PUMP1, $PUMP2);
 	
 	// Execute
 	if(mysqli_stmt_execute ($stmt)){
